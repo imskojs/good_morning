@@ -1,5 +1,7 @@
 const problem = 'multiply';
 
+// run `rollup -c` to build answer from PROBLEM_FOLDER/main.js
+
 // No need to touch config
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';

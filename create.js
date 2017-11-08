@@ -1,3 +1,6 @@
+// run node create PROBLEM_NAME in terminal to craete a problem folder
+
+//  No need to touch this file
 const fs = require('fs');
 const problem = process.argv[2];
 
