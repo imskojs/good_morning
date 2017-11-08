@@ -1,1 +1,0 @@
-"use strict";function almostIncreasingSequence(e){let n=0,t=-99999999999,r=-99999999999;for(let s=0;s<e.length;++s)if(e[s]>t)r=t,t=e[s];else if(e[s]>r){if(t=e[s],++n>1)return!1}else if(++n>1)return!1;return!0}module.exports=almostIncreasingSequence;
