@@ -11,12 +11,12 @@ export default {
   dest: `src/${problem}/build.js`, // output a single application bundle
   sourceMap: false,
   format: 'cjs', // for browser settings set format 'iife'
-  // moduleName: 'funcNameToBeOnWindow',  // for browser settings uncomment and give
+  // moduleName: 'funcNameToBeOnWindow',  // for browser settings uncomment this 
   onwarn: function (warning) {
     console.warn(warning.message);
   },
   plugins: [
-    nodeResolve({ jsnext: false, module: true }),
+    nodeResolve({ jsnext: true, module: true }),
     commonjs({ include: ['node_modules/rxjs/**', 'node_modules/ramda/**'] }),
     uglify({}, minify)
   ]
