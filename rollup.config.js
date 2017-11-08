@@ -1,5 +1,4 @@
-// Set folder name
-const problem = 'matrixElementsSum'
+const problem = 'multiply';
 
 // No need to touch config
 import nodeResolve from 'rollup-plugin-node-resolve';
@@ -17,8 +16,8 @@ export default {
     console.warn(warning.message);
   },
   plugins: [
-    nodeResolve({ jsnext: true, module: true }),
-    commonjs({ include: 'node_modules/rxjs/**' }),
+    nodeResolve({ jsnext: false, module: true }),
+    commonjs({ include: ['node_modules/rxjs/**', 'node_modules/ramda/**'] }),
     uglify({}, minify)
   ]
 };
