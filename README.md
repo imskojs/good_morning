@@ -1,4 +1,5 @@
 # Practice Rx.js and Ramda to solve toy problems 
+Got sick of for loops even JavaScript API. I wanted to horn my skills in Rx.js and Ramda (Functional Reactive Programming).
 
 ## How to use
 1) `$ node create PROBLEM_NAME` makes `./src/PROBLEM_NAME/main.js`, Solve using Rx.js, and Ramda
