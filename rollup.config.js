@@ -1,4 +1,4 @@
-const problem = 'multiply';
+const problem = 'removeChar';
 
 // run `rollup -c` to build answer from PROBLEM_FOLDER/main.js
 
