@@ -1,4 +1,4 @@
-const folderName = '7Kyu-Mumbling';
+const folderName = '6Kyu-MultiplesOf3Or5';
 
 // run `rollup -c` to build answer from PROBLEM_FOLDER/main.js
 
