@@ -9,10 +9,10 @@ import uglify from 'rollup-plugin-uglify';
 import { minify } from 'uglify-es';
 
 export default {
-  input: `src/${folderName}/main.js`,
+  input: `${folderName}/main.js`,
   output: {
     format: 'cjs', // for browser settings set format 'iife'
-    file: `src/${folderName}/build.js`, // output a single application bundle
+    file: `${folderName}/build.js`, // output a single application bundle
     sourceMap: false,
   },
   // moduleName: 'funcNameToBeOnWindow',  // for browser settings uncomment this 

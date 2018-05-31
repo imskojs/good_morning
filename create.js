@@ -5,10 +5,10 @@ const fs = require('fs');
 const folderName = `${process.argv[2]}Kyu-${process.argv[3]}`;
 const problem = process.argv[4];
 
-fs.mkdirSync(`./src/${folderName}`);
+fs.mkdirSync(`./${folderName}`);
 // fs.mkdirSync(`./src/${problem}`);
 
-fs.writeFileSync(`./src/${folderName}/main.js`,
+fs.writeFileSync(`./${folderName}/main.js`,
   `import {  } from "rxjs";
 import {  } from "rxjs/operators";
 
