@@ -1,31 +1,24 @@
-import { from } from "rxjs";
-import { scan, reduce, map } from "rxjs/operators";
+import { from, range } from "rxjs";
+import { scan, reduce, map, concatMap, skipLast } from "rxjs/operators";
+import * as R from "ramda";
 
 export default function accum(s) {
-  let solution = '';
+  let solution = ``;
 
   from(s).pipe(
 
-    scan((acc, value) => {
-      return { value, index: acc.index + 1 }
-    }, { value: '', index: -1 }),
+    scan((acc, val) => ({ upper: val.toUpperCase(), lower: val.toLowerCase(), i: acc.i + 1 }), { i: 0 }),
 
-    map(obj => {
-      const { index, value } = obj;
-      let str = value.toUpperCase()
-      const rest = value.toLowerCase()
-      for (let i = 0; i < index; i++) {
-        str = str + rest;
-      }
-      return str;
+    concatMap(({ i, upper, lower }) => {
+      let mumblePartGen = R.cond([
+        [R.equals(0), R.always(upper)], [R.equals(i), R.always(`-`)], [R.T, R.always(lower)]
+      ]);
+      return range(0, i + 1).pipe(map(mumblePartGen))
     }),
 
-    reduce((acc, str) => {
-      if (acc.length === 0) {
-        return str;
-      }
-      return acc + '-' + str
-    }, '')
+    skipLast(1),
+
+    reduce((accum, str) => accum + str, ``),
   )
     .subscribe(result => solution = result)
 
