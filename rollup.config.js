@@ -1,4 +1,4 @@
-const problem = 'removeChar';
+const folderName = '7Kyu-Mumbling';
 
 // run `rollup -c` to build answer from PROBLEM_FOLDER/main.js
 
@@ -9,17 +9,19 @@ import uglify from 'rollup-plugin-uglify';
 import { minify } from 'uglify-es';
 
 export default {
-  entry: `src/${problem}/main.js`,
-  dest: `src/${problem}/build.js`, // output a single application bundle
-  sourceMap: false,
-  format: 'cjs', // for browser settings set format 'iife'
+  input: `src/${folderName}/main.js`,
+  output: {
+    format: 'cjs', // for browser settings set format 'iife'
+    file: `src/${folderName}/build.js`, // output a single application bundle
+    sourceMap: false,
+  },
   // moduleName: 'funcNameToBeOnWindow',  // for browser settings uncomment this 
   onwarn: function (warning) {
     console.warn(warning.message);
   },
   plugins: [
     nodeResolve({ jsnext: true, module: true }),
-    commonjs({ include: ['node_modules/rxjs/**', 'node_modules/ramda/**'] }),
+    commonjs(),
     uglify({}, minify)
   ]
 };
