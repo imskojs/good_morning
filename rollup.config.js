@@ -1,4 +1,4 @@
-const folderName = '5Kyu-SumOfPairs';
+const folderName = '5Kyu-MovingZerosToTheEnd';
 
 // run `rollup -c` to build answer from PROBLEM_FOLDER/main.js
 
