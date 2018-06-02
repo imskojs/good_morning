@@ -1,5 +1,5 @@
 import { from, concat } from "rxjs";
-import { partition, reduce, bufferCount } from "rxjs/operators";
+import { partition, bufferCount } from "rxjs/operators";
 
 export default function moveZeros(arr) {
   let solution = [];
