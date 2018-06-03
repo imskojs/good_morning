@@ -1,4 +1,4 @@
-const folderName = '5Kyu-MovingZerosToTheEnd';
+const folderName = '4Kyu-SimpleFun#197:DividingMarbles';
 
 // run `rollup -c` to build answer from PROBLEM_FOLDER/main.js
 
