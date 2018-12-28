@@ -1,4 +1,4 @@
-// run node create PROBLEM_NAME in terminal to craete a problem folder
+// run node create PROBLEM_NAME in terminal to create a problem folder
 
 //  No need to touch this file
 const fs = require('fs');
@@ -6,13 +6,9 @@ const folderName = `${process.argv[2]}Kyu-${process.argv[3]}`;
 const problem = process.argv[4];
 
 fs.mkdirSync(`./${folderName}`);
-// fs.mkdirSync(`./src/${problem}`);
 
-fs.writeFileSync(`./${folderName}/main.js`,
-  `import {  } from "rxjs";
-import {  } from "rxjs/operators";
-
-export default function ${problem}() {
+fs.writeFileSync(`./${folderName}/main.ts`,
+  `export default function ${problem}() {
 
 }`);
 
