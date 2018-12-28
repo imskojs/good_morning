@@ -53,7 +53,7 @@ function afterBuild() {
         generateBundle: (options, bundle, isWrite) => {
             let githubFile = options.file.replace('build.js', 'main.ts')
             setTimeout(() => {
-                fs.appendFileSync(options.file, `//  https://github.com/imskojs/toy-problem-rxjs-ramda/${githubFile}`);
+                fs.appendFileSync(options.file, `//  https://github.com/imskojs/toy-problem-rxjs-ramda/blob/master/${githubFile}`);
             }, 100)
 
         }

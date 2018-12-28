@@ -1,3 +1,5 @@
+//  https://www.codewars.com/kata/recursive-replication/train/javascript
+
 import {range} from "rxjs";
 import {mapTo, toArray} from "rxjs/operators";
 
