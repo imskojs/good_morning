@@ -5,6 +5,7 @@
   },
   "scripts": {
     "create": "node create",
+    "update": "node update",
     "build": "rollup -c"
   },
   "devDependencies": {

@@ -11,6 +11,13 @@ node create 8 RemoveFirstAndLastCharacter removeChar
 ```
 2) `$ rollup -c` makes `./PROBLEM_NAME/build.js`, paste contents to answer pane of your choice such as Codewars
 
+3) `node update FOLDER_NAME` to re do the exercise. Example;
+```bash
+node update 7Kyu-RecursiveReplication
+rollup -c
+```
+
+
 Tested in Codewars environment.
 
 
