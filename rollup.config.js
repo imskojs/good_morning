@@ -1,6 +1,7 @@
-const fs = require('fs');
 const folderName = '7Kyu-RecursiveReplication';
 
+// Import from here
+const fs = require('fs');
 // run `rollup -c` to build answer from PROBLEM_FOLDER/main.ts
 
 // No need to touch config
