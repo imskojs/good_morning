@@ -17,5 +17,11 @@ lines.shift()
 lines.unshift(`const folderName = '${folderName}';`)
 fs.writeFileSync('./rollup.config.js', lines.join('\n'))
 
+let content = fs.readFileSync('./rollup.config.js').toString()
+content = content.replace(/^.*moduleName:.*$/mg, `        moduleName: '${problem}',`);
+content = content.replace(/^.*reserved:.*$/mg, `            reserved: ['${problem}'],`)
+
+fs.writeFileSync('./rollup.config.js', content)
+
 
 

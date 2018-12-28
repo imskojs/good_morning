@@ -7,33 +7,29 @@ const fs = require('fs');
 // No need to touch config
 import typescript from 'rollup-plugin-typescript';
 import nodeResolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
 import {terser} from 'rollup-plugin-terser';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
     input: `${folderName}/main.ts`,
+    treeshake: true,
     output: {
-        format: 'cjs', // for browser settings set format 'iife'
+        format: 'iife', // for browser settings set format 'cjs'
         file: `${folderName}/build.js`, // output a single application bundle
         sourceMap: false,
     },
-    // moduleName: 'funcNameToBeOnWindow',  // for browser settings uncomment this
-    onwarn: function (warning) {
-        console.warn(warning.message);
-    },
+        moduleName: 'replicate',
     plugins: [
-        typescript(),
-        nodeResolve({jsnext: true, module: true}),
-        commonjs(),
+        nodeResolve(),
+        typescript({ exclude: 'node_modules/**'}),
         terser({
             mangle: {
-                // reserved: [],
-                // // If below option is used then it will break
-                // module: true,
-                // toplevel: true
+            reserved: ['replicate'],
+                module: true,
+                toplevel: true
             },
             compress: {
+                pure_getters: true,
                 arguments: true,
                 drop_console: true,
                 ecma: 6,
