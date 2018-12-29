@@ -1,9 +1,7 @@
 import {from} from "rxjs";
 import {map, reduce} from "rxjs/operators";
-import {path} from "rambda";
 
 type HandCount = { scissors: number, paper: number, rock: number };
-type WinMap = { rock: 'paper', paper: 'scissors', scissors: 'rock' };
 export default function oracle(gestures) {
   let solution: string
   // Get number of scissors etc
