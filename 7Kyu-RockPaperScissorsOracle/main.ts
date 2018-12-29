@@ -1,47 +1,33 @@
-import {from, Observable, of} from "rxjs";
-import {concatMap, distinct, filter, groupBy, map, mergeMap, tap, toArray, withLatestFrom} from "rxjs/operators";
+import {from} from "rxjs";
+import {map, reduce} from "rxjs/operators";
 import {path} from "rambda";
 
+type HandCount = { scissors: number, paper: number, rock: number };
 type WinMap = { rock: 'paper', paper: 'scissors', scissors: 'rock' };
 export default function oracle(gestures) {
   let solution: string
   // Get number of scissors etc
   from(gestures).pipe(
-    groupBy((hand: string): string => hand),
+    reduce((handCount: HandCount, hand: string): HandCount => {
+      handCount[hand] = handCount[hand] + 1;
+      return handCount;
+    }, {scissors: 0, paper: 0, rock: 0}),
 
-    mergeMap((handStream: Observable<string>): Observable<string[]> => {
-      return handStream.pipe(toArray())
+    map(({scissors, paper, rock}: HandCount): string => {
+      const threshold = 0;
+      const winningHands: string[] = [];
+      if (scissors - paper > threshold) { winningHands.push('rock'); }
+      if (rock - scissors > threshold) { winningHands.push('paper'); }
+      if (paper - rock > threshold) { winningHands.push('scissors'); }
+      if(winningHands.length === 0) {return 'tie'}
+      return winningHands.join('/');
     }),
-
-    withLatestFrom(from(gestures).pipe(
-      distinct(), toArray()
-    )),
-
-    filter(([hands, uniqueGestures]: [string[], string[]]): boolean => {
-      return hands.length >= Math.floor(gestures.length / uniqueGestures.length)
-    }),
-
-    map(path('0.0')),
-
-    withLatestFrom(of({rock: 'paper', paper: 'scissors', scissors: 'rock'})),
-
-    map(([hand, winMap]: [string, WinMap]): string => {
-      return winMap[hand];
-    }),
-
-    toArray(),
-
-    map((hands: string[]): string => {
-      return hands.join('/')
-    })
   ).subscribe(
     (answer: string): void => {
       solution = answer
     }
   )
 
-
   return solution;
-
 
 }

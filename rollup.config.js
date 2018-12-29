@@ -31,7 +31,7 @@ export default {
             compress: {
                 pure_getters: true,
                 arguments: true,
-                drop_console: true,
+                // drop_console: true,
                 ecma: 6,
                 keep_fargs: false,
                 passes: 1
