@@ -1,4 +1,4 @@
-const folderName = '7Kyu-RecursiveReplication';
+const folderName = '7Kyu-RockPaperScissorsOracle';
 
 // Import from here
 const fs = require('fs');
@@ -18,13 +18,13 @@ export default {
         file: `${folderName}/build.js`, // output a single application bundle
         sourceMap: false,
     },
-        moduleName: 'replicate',
+        moduleName: 'oracle',
     plugins: [
-        nodeResolve(),
         typescript({ exclude: 'node_modules/**'}),
+        nodeResolve(),
         terser({
             mangle: {
-            reserved: ['replicate'],
+            reserved: ['oracle'],
                 module: true,
                 toplevel: true
             },
