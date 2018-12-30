@@ -1,4 +1,4 @@
-const folderName = '7Kyu-GetTheMiddleCharacter';
+const folderName = '6Kyu-DecodeTheMorseCode';
 
 // Import from here
 const fs = require('fs');
@@ -18,13 +18,13 @@ export default {
         file: `${folderName}/build.js`, // output a single application bundle
         sourceMap: false,
     },
-        moduleName: 'getMiddle',
+        moduleName: 'decodeMorse',
     plugins: [
         typescript({ exclude: 'node_modules/**'}),
         nodeResolve(),
         terser({
             mangle: {
-            reserved: ['getMiddle'],
+            reserved: ['decodeMorse'],
                 module: true,
                 toplevel: true
             },
