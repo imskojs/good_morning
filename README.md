@@ -1,5 +1,7 @@
 # Practice Rx.js and Ramda to solve toy problems 
 I wanted to horn my skills in Rx.js and Ramda (Functional Reactive Programming).
+Seriously, there were many cases where it would have been much simpler by not using RxJS, but by coding in RxJS
+it becomes async proof.
 
 ## How to use
 `npm install` then;
