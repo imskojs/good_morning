@@ -1,4 +1,4 @@
-const folderName = '7Kyu-RockPaperScissorsOracle';
+const folderName = '7Kyu-GetTheMiddleCharacter';
 
 // Import from here
 const fs = require('fs');
@@ -18,13 +18,13 @@ export default {
         file: `${folderName}/build.js`, // output a single application bundle
         sourceMap: false,
     },
-        moduleName: 'oracle',
+        moduleName: 'getMiddle',
     plugins: [
         typescript({ exclude: 'node_modules/**'}),
         nodeResolve(),
         terser({
             mangle: {
-            reserved: ['oracle'],
+            reserved: ['getMiddle'],
                 module: true,
                 toplevel: true
             },
