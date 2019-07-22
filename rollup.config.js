@@ -11,47 +11,47 @@ import {terser} from 'rollup-plugin-terser';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
-    input: `${folderName}/main.ts`,
-    treeshake: true,
-    output: {
-        format: 'iife', // for browser settings set format 'cjs'
-        file: `${folderName}/build.js`, // output a single application bundle
-        sourceMap: false,
-    },
-        moduleName: 'spiderToFly',
-    plugins: [
-        typescript({ exclude: 'node_modules/**'}),
-        nodeResolve(),
-        terser({
-            mangle: {
-            reserved: ['spiderToFly'],
-                module: true,
-                toplevel: true
-            },
-            compress: {
-                pure_getters: true,
-                arguments: true,
-                // drop_console: true,
-                ecma: 6,
-                keep_fargs: false,
-                passes: 1
-            }
-        }),
-        afterBuild()
-    ]
+  input: `${folderName}/main.ts`,
+  treeshake: true,
+  output: {
+    /*outputName*/ name: 'spiderToFly',
+    file: `${folderName}/build.js`, // output a single application bundle
+    format: 'iife', // for browser settings set format 'cjs'
+    sourceMap: false,
+  },
+  // moduleName: 'spiderToFly',
+  plugins: [
+    typescript({exclude: 'node_modules/**'}),
+    nodeResolve(),
+    terser({
+      mangle: {
+        /*terserMangleReserve*/ reserved: ['spiderToFly'],
+        module: true,
+        toplevel: true
+      },
+      compress: {
+        pure_getters: true,
+        arguments: true,
+        // drop_console: true,
+        ecma: 6,
+        keep_fargs: false,
+        passes: 1
+      }
+    }),
+    afterBuild()
+  ]
 };
 
 
-
 function afterBuild() {
-    return {
-        name: 'my-after-build',
-        generateBundle: (options /*, bundle, isWrite */) => {
-            let githubFile = options.file.replace('build.js', 'main.ts');
-            setTimeout(() => {
-                fs.appendFileSync(options.file, `//  https://github.com/imskojs/toy-problem-rxjs-ramda/blob/master/${githubFile}`);
-            }, 100)
+  return {
+    name: 'my-after-build',
+    generateBundle: (options /*, bundle, isWrite */) => {
+      let githubFile = options.file.replace('build.js', 'main.ts');
+      setTimeout(() => {
+        fs.appendFileSync(options.file, `//  https://github.com/imskojs/toy-problem-rxjs-ramda/blob/master/${githubFile}`);
+      }, 100)
 
-        }
     }
+  }
 }

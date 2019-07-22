@@ -14,14 +14,20 @@ fs.writeFileSync(`./${folderName}/main.ts`,
 
 const lines = fs.readFileSync('./rollup.config.js').toString().split('\n');
 lines.shift()
-lines.unshift(`const folderName = '${folderName}';`)
-fs.writeFileSync('./rollup.config.js', lines.join('\n'))
+lines.unshift(`const folderName = '${folderName}';`);
+fs.writeFileSync('./rollup.config.js', lines.join('\n'));
 
-let content = fs.readFileSync('./rollup.config.js').toString()
-content = content.replace(/^.*moduleName:.*$/mg, `        moduleName: '${problem}',`);
-content = content.replace(/^.*reserved:.*$/mg, `            reserved: ['${problem}'],`)
+let content = fs.readFileSync('./rollup.config.js').toString();
+content = content.replace(
+  /^.*outputName.*$/mg,
+  `    /*outputName*/ name: '${problem}',`
+);
+content = content.replace(
+  /^.*terserMangleReserve:.*$/mg,
+  `        /*terserMangleReserve*/ reserved: ['${problem}'],`
+);
 
-fs.writeFileSync('./rollup.config.js', content)
+fs.writeFileSync('./rollup.config.js', content);
 
 
 
