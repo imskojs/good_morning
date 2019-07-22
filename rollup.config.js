@@ -1,4 +1,4 @@
-const folderName = '6Kyu-DecodeTheMorseCode';
+const folderName = '6Kyu-TheSpiderAndTheFlyJumpingSpider';
 
 // Import from here
 const fs = require('fs');
@@ -18,13 +18,13 @@ export default {
         file: `${folderName}/build.js`, // output a single application bundle
         sourceMap: false,
     },
-        moduleName: 'decodeMorse',
+        moduleName: 'spiderToFly',
     plugins: [
         typescript({ exclude: 'node_modules/**'}),
         nodeResolve(),
         terser({
             mangle: {
-            reserved: ['decodeMorse'],
+            reserved: ['spiderToFly'],
                 module: true,
                 toplevel: true
             },
@@ -46,8 +46,8 @@ export default {
 function afterBuild() {
     return {
         name: 'my-after-build',
-        generateBundle: (options, bundle, isWrite) => {
-            let githubFile = options.file.replace('build.js', 'main.ts')
+        generateBundle: (options /*, bundle, isWrite */) => {
+            let githubFile = options.file.replace('build.js', 'main.ts');
             setTimeout(() => {
                 fs.appendFileSync(options.file, `//  https://github.com/imskojs/toy-problem-rxjs-ramda/blob/master/${githubFile}`);
             }, 100)
