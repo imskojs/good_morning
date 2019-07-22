@@ -1,4 +1,4 @@
-const folderName = '6Kyu-TheSpiderAndTheFlyJumpingSpider';
+const folderName = '5Kyu-WeightForWeight';
 
 // Import from here
 const fs = require('fs');
@@ -14,7 +14,7 @@ export default {
   input: `${folderName}/main.ts`,
   treeshake: true,
   output: {
-    /*outputName*/ name: 'spiderToFly',
+    /*outputName*/ name: 'orderWeight',
     file: `${folderName}/build.js`, // output a single application bundle
     format: 'iife', // for browser settings set format 'cjs'
     sourceMap: false,
@@ -25,7 +25,7 @@ export default {
     nodeResolve(),
     terser({
       mangle: {
-        /*terserMangleReserve*/ reserved: ['spiderToFly'],
+        /*terserMangleReserve*/ reserved: ['orderWeight'],
         module: true,
         toplevel: true
       },
