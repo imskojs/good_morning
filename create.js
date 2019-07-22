@@ -4,26 +4,32 @@
 const fs = require('fs');
 const folderName = `${process.argv[2]}Kyu-${process.argv[3]}`;
 const problem = process.argv[4];
+const problemFunctionName =
+  `const ${problem} = () => {
+
+};
+
+export default ${problem};
+`;
 
 fs.mkdirSync(`./${folderName}`);
 
-fs.writeFileSync(`./${folderName}/main.ts`,
-  `export default function ${problem}() {
+fs.writeFileSync(`./${folderName}/main.ts`, problemFunctionName);
 
-}`);
-
-const lines = fs.readFileSync('./rollup.config.js').toString().split('\n');
-lines.shift()
+const lines = fs.readFileSync('./rollup.config.js')
+  .toString()
+  .split('\n');
+lines.shift();
 lines.unshift(`const folderName = '${folderName}';`);
-fs.writeFileSync('./rollup.config.js', lines.join('\n'));
 
+fs.writeFileSync('./rollup.config.js', lines.join('\n'));
 let content = fs.readFileSync('./rollup.config.js').toString();
 content = content.replace(
   /^.*outputName.*$/mg,
   `    /*outputName*/ name: '${problem}',`
 );
 content = content.replace(
-  /^.*terserMangleReserve:.*$/mg,
+  /^.*terserMangleReserve.*$/mg,
   `        /*terserMangleReserve*/ reserved: ['${problem}'],`
 );
 
