@@ -56,12 +56,12 @@ const format = ({second, minute, hour, day, year}: Time): string => {
 
 };
 
-const formatDuration = (sec: number) => compose(
+const formatDuration = compose(
   format,
   getYears,
   getDays,
   getHours,
   getMinutes
-)(sec);
+);
 
 export default formatDuration;
