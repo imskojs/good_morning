@@ -1,5 +1,5 @@
-# Practice Rx.js and Rambda to solve toy problems 
-I wanted to horn my skills in Rx.js and Rambda (Functional Reactive Programming).
+# Practice Rx.js and Rambda by solving toy problems
+Rx.js and Rambda (Functional Reactive Programming).
 
 ## How to use
 `npm install` then;
