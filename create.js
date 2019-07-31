@@ -14,7 +14,7 @@ export default ${problem};
 
 fs.mkdirSync(`./${folderName}`);
 
-fs.writeFileSync(`./${folderName}/main.ts`, problemFunctionName);
+fs.writeFileSync(`./${folderName}/index.ts`, problemFunctionName);
 
 const lines = fs.readFileSync('./rollup.config.js')
   .toString()

@@ -2,7 +2,7 @@ const folderName = '4Kyu-HumanReadableDurationFormat';
 
 // Import from here
 const fs = require('fs');
-// run `rollup -c` to build answer from PROBLEM_FOLDER/main.ts
+// run `rollup -c` to build answer from PROBLEM_FOLDER/index.ts
 
 // No need to touch config
 import typescript from 'rollup-plugin-typescript';
@@ -11,7 +11,7 @@ import {terser} from 'rollup-plugin-terser';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
-  input: `${folderName}/main.ts`,
+  input: `${folderName}/index.ts`,
   treeshake: true,
   output: {
     /*outputName*/ name: 'formatDuration',
@@ -19,7 +19,6 @@ export default {
     format: 'iife', // for browser settings set format 'cjs'
     sourceMap: false,
   },
-  // moduleName: 'spiderToFly',
   plugins: [
     typescript({exclude: 'node_modules/**'}),
     nodeResolve(),
@@ -47,7 +46,7 @@ function afterBuild() {
   return {
     name: 'my-after-build',
     generateBundle: (options /*, bundle, isWrite */) => {
-      let githubFile = options.file.replace('build.js', 'main.ts');
+      let githubFile = options.file.replace('build.js', 'index.ts');
       setTimeout(() => {
         fs.appendFileSync(options.file, `//  https://github.com/imskojs/toy-problem-rxjs-ramda/blob/master/${githubFile}`);
       }, 100)
