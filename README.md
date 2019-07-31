@@ -39,7 +39,10 @@ test(desc, () => {
 
 3) `npm run test:all` to run test for all files.
 
+## npm version house keeping.
+1) `npm run check` to check available package.json updates.
 
+2) `npm run update` to upgrade all packages and package.json to latest versions. 
 
 
 

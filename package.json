@@ -8,12 +8,15 @@
     "create": "node create $*",
     "build": "rollup -c",
     "test": "jest -o",
-    "test:all": "jest"
+    "test:all": "jest",
+    "check": "ncu",
+    "update": "ncu -u && npm install"
   },
   "devDependencies": {
     "@types/jest": "^24.0.16",
     "jest": "^24.8.0",
     "node": "^12.7.0",
+    "npm-check-updates": "^3.1.20",
     "rollup": "^1.17.0",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
