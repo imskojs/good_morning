@@ -1,4 +1,4 @@
-# Practice Rx.js and Rambda to solve toy problems 
+# Practice Rx.js and Rambda
 Practice Toy algorithms and classical computer science algorithms using RxJS and Rambda (Functional Reactive Programming).
 
 ## Init
