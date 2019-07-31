@@ -1,6 +1,12 @@
 # Practice Rx.js and Rambda
 Practice Toy algorithms and classical computer science algorithms using RxJS and Rambda (Functional Reactive Programming).
 
+## Global dependencies;
+NodeJS (reasonable version).
+NodeJS installation instructions at https://nodejs.org
+
+*Note: local latest nodejs version will be used for npm scripts*
+
 ## Init
 `npm install`
 
