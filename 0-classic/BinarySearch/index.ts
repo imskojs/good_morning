@@ -1,6 +1,12 @@
 // Search a sorted array by repeatedly dividing the search interval in half.
+type Index = number;
 
-const binarySearch = (sorted, targetNum, begIndex = 0, endIndex = sorted.length - 1) => {
+const binarySearch = (
+  sorted: number[],
+  targetNum: number,
+  begIndex: Index = 0,
+  endIndex: Index = sorted.length - 1
+): Index => {
   const midIndex = Math.floor((endIndex - begIndex) / 2) + begIndex;
   const currentNum = sorted[midIndex];
   if (currentNum === targetNum) {
