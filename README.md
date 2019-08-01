@@ -41,9 +41,11 @@ test(desc, () => {
 });
 ```
 
-2) `npm t` or `npm test` to run test for changed(uncommitted) files only. 
+2) `npm run test:watch` to automatically rerun rests for changed(uncommitted files) files.
 
-3) `npm run test:all` to run test for all files.
+3) `npm t` or `npm run test` to run test for changed(uncommitted) files only. 
+
+4) `npm run test:all` to run test for all files.
 
 ## npm version house keeping.
 1) `npm run check` to check available package.json updates.
