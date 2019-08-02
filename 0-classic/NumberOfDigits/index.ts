@@ -8,6 +8,9 @@
 // -> K <= log(N) + 1
 // -> K = floor(log(N) + 1)
 
+// Note: the log of any number is the power to which the base must be raised to give that number;
+// so, log10(120) would be 2.SOMETHING as 120 = 10^2.SOMETHING
+
 type Int = number;
 
 const numberOfDigits = (num: Int) => { // O(1)
