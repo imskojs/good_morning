@@ -1,7 +1,9 @@
+// Q: search for number in sorted array.
+
 // Search a sorted array by repeatedly dividing the search interval in half.
 type Index = number;
 
-const binarySearch = (
+const binarySearch = ( // O(log n)
   sorted: number[],
   targetNum: number,
   begIndex: Index = 0,

@@ -1,6 +1,8 @@
+// Q: Reverse digits in integer
+
 type Int = number
 
-const reverseDigit = (num: Int, reversed: Int = 0): Int => {
+const reverseDigit = (num: Int, reversed: Int = 0): Int => { // O(n)
   if(num === 0) {
     return reversed;
   }
