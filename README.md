@@ -1,5 +1,5 @@
-# Practice Rx.js and Rambda
-Practice Toy algorithms and classical computer science algorithms using RxJS and Rambda (Functional Reactive Programming).
+# Good morning.
+Wake up, do some algos.
 
 ## Global dependencies;
 NodeJS (reasonable version).
