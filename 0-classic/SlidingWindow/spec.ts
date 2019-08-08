@@ -39,7 +39,7 @@ describe('findMaxSubArray', () => {
 describe('findSmallestSubArray', () => {
   const parameters = [
     {
-      desc: 'finds a smallest sub array ',
+      desc: 'finds a smallest sub array that has a sum gte to targetSum',
       input: {targetSum: 8, array: [1, 2, 3, 4, 5]},
       result: {array: [4, 5]}
     },
