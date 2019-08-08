@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "big.js": "^5.2.2",
-    "rambda": "^2.13.0",
+    "rambda": "^2.14.0",
     "rxjs": "^6.5.2"
   },
   "scripts": {
@@ -16,12 +16,13 @@
   },
   "devDependencies": {
     "@types/big.js": "^4.0.5",
-    "@types/jest": "^24.0.16",
+    "@types/jest": "^24.0.17",
+    "@types/node": "^12.7.1",
     "jest": "^24.8.0",
-    "node": "^12.7.0",
+    "node": "^12.8.0",
     "npm-check-updates": "^3.1.20",
-    "rollup": "^1.18.0",
-    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup": "^1.19.4",
+    "rollup-plugin-commonjs": "^10.0.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript": "^1.0.1",
